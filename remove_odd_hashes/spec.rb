@@ -1,4 +1,4 @@
-require "./remove_odd_hashes"
+require "./parser.rb"
 
 describe Parser do
 
