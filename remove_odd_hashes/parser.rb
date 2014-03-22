@@ -11,12 +11,19 @@ class Parser
 
   def remove_odd_hashes
     sum = 0
+    array = []
     self.json.each do |hash|
+      #iterates over each hash in the json array and sums the values of its keys
       hash.each do |key, value|
         sum += value
       end
+      #if the sum is even, shovels the hash into the new array
+      if sum % 2 == 0
+        array << hash
+      end
+      sum = 0
     end
-    0#you can check for "%" operator
+    array
   end
 
 end
