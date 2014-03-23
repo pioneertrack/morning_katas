@@ -38,6 +38,10 @@ describe Hash do
       expect(subject.c).to eq(NoMethodError)
     end
 
+    it 'should return the size of the hash if key is size' do
+      expect(subject.size).to eq(2)
+    end
+    
   end
 
 

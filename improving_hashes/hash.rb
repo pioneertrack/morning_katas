@@ -7,6 +7,8 @@ class Hash
       self[key.to_s]
     elsif self.has_key?(key)
       self[key]
+    elsif key == 'size'
+      self.size
     else
       NoMethodError
     end
