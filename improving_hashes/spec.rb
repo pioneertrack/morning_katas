@@ -34,6 +34,10 @@ describe Hash do
       expect(subject.b).to eq(200)
     end
 
+    it 'should return a NoMethodError exception' do 
+      expect(subject.c).to eq(NoMethodError)
+    end
+
   end
 
 
