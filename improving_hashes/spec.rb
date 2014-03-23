@@ -28,6 +28,11 @@ describe Hash do
       expect(subject.a).to eq(100)
     end
 
+    subject(:my_hash) { Hash[:a, 100, :b, 200] }
+
+    it 'should return the value of the hash key' do 
+      expect(subject.b).to eq(200)
+    end
 
   end
 
