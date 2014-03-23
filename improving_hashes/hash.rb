@@ -1,17 +1,12 @@
-# hash = {a: 2, b: 1, c: 0.5}
+require 'debugger'
 
-# hash.a # must return the same as hash[:a]
-# hash.b # must return the same as hash[:b]
-# hash.c # must return the same as hash[:c]
+class Hash
 
-class Re_Hash < Hash
-
-  attr_accessor :key, :value
-
-  def initialize (key, value)
-    @key = value
-    @value = key
-    #super
+  def method_missing(key, *arguments, &block)
+    if self.has_key?(key.to_s)
+      self[key.to_s]
+    end
   end
+
 
 end
