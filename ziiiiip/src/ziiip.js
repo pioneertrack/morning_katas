@@ -7,7 +7,7 @@ function zipObject(keys, values) {
   } else {
     while (i < keys.length) {
       //if a 2D array is given, for each inner array, set myHash key to index 0 and its value to index 1 
-      if (typeof (keys[0]) === 'object') {
+      if (Array.isArray(keys[0])) {
         myHash[keys[i][0]] = keys[i][1];
       //if two arrays are given, set myHash keys equal to indices in array1 and values equal to indices in array 2
       } else if (keys && values) {
