@@ -4,7 +4,7 @@ function zipObject(keys, values) {
   if (!keys && !values) {
     return {};
   } else {
-    while (i < keys.lenth) {
+    while (i < keys.length) {
       if (typeof (keys[0]) === 'object') {
         myHash[keys[i][0]] = keys[i][1];
       } else if (keys && values) {
