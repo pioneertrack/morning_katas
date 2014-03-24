@@ -1,23 +1,19 @@
-function zipObject(params1, params2) {
+function zipObject(keys, values) {
   var myHash = {};
   var i = 0;
-  if (!params1 && !params2) {
+  if (!keys && !values) {
     return {};
-  } else if (typeof (params1[0]) === 'object') {
-    while (i < params1.length) {
-      myHash[params1[i][0]] = params1[i][1];
+  } else {
+    while (i < keys.lenth) {
+      if (typeof (keys[0]) === 'object') {
+        myHash[keys[i][0]] = keys[i][1];
+      } else if (keys && values) {
+        myHash[keys[i]] = values[i];
+      } else if (keys && values === undefined) {
+        myHash[keys[i]] = undefined;
+      }
       i++;
     }
-  } else if (params1 && params2) {
-    while (i < params1.length) {
-      myHash[params1[i]] = params2[i];
-      i++;
-    }
-  } else if (params1 && params2 === undefined) {
-    while (i < params1.length) {
-      myHash[params1[i]] = undefined;
-      i++;
-    }
+    return myHash;
   }
-  return myHash;
 }
