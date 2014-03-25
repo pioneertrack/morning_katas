@@ -36,6 +36,11 @@ describe Hash do
         expect(subject.get_value("cfg", :files, :extension)).to eq("cfg")
       end
 
+      it 'should return the default value if a key does not exist' do
+        expect(subject.get_value("conf", :name, :path )).to eq("conf")
+      end
+
+        
     end
 
   end
