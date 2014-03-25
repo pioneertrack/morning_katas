@@ -2,7 +2,7 @@ require 'debugger'
 
 class Hash
 
-  def method_missing(key, *arguments, &block)
+  def method_missing(key, *arguments)
     if (self.methods-Object.methods).include?(key)
       self.key
     elsif self.has_key?(key.to_s)
