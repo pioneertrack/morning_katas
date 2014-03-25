@@ -11,7 +11,7 @@ class Hash
         default #otherwise return the default
       end
     else
-      self[keys[0]] ||= default # otherwise if only one key return its value or default
+      self[keys[0]] ||= default #if only one key return its value or default
     end
   end
 
