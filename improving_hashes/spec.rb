@@ -23,7 +23,13 @@ describe Hash do
     it 'should return the size of the hash if key is size' do
       expect(subject.size).to eq(2)
     end
+
+    subject(:my_hash) { {'a' => 1} }
     
+    it 'should return the size of the hash if key is size' do
+      expect(subject.a).to eq(1)
+    end
+
   end
 
 end
