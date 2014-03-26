@@ -3,6 +3,8 @@ require 'ap'
 
 class Hash
 
+  #my solution
+
   def get_value(default, *keys) #'splat' or asterisk operator specifies an optional length variable list passed to the method as an array called keys
     if keys.length > 1 #if more than one arg
       if self[keys.first].class == Hash # and the first arg is a hash (we only test to see if the first arg is a hash, because a second argument can only follow if this is the case)
