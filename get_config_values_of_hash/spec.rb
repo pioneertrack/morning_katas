@@ -20,6 +20,10 @@ describe Hash do
 
     context 'expected results' do
 
+      it 'should not raise an error if at least one parameters are given' do
+        expect(subject.get_value("wow")).to eq("wow")
+      end
+
       it 'should return the value of a given key' do
         expect(subject.get_value("", :name)).to eq("config")
       end
@@ -37,7 +41,7 @@ describe Hash do
       end
 
       it 'should return the default value if a key does not exist' do
-        expect(subject.get_value("conf", :name, :path )).to eq("conf")
+        expect(subject.get_value("conf", :name, :path)).to eq("conf")
       end
 
         

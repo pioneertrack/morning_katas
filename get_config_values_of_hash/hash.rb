@@ -15,6 +15,19 @@ class Hash
     end
   end
 
+  #alternate solution by Lafwind from Codewars
+
+  def get_value(default, *keys) 
+    clone = self #have to save self as new variable here in order to modify it below
+    keys.each_with_index do |key, index|
+      debugger
+      return default unless clone.class == Hash
+      clone = clone[key] #reset clone each time we iterate
+      return clone unless clone.nil? || index != keys.size - 1 #if index a doesn't equal key size keep going
+    end
+    default
+  end
+
 end
 
 
