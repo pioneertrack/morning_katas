@@ -10,7 +10,8 @@ class Parser
   end
 
   def find_value index, default
-    return self.data[index] ||= default
+    data = self.data
+    index.abs > data.length ? default : data[index]
   end
 
 end
