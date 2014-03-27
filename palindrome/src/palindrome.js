@@ -6,11 +6,7 @@ function palindrome(string) {
   while (i < letterArray.length) {
     current = current.concat(letterArray.pop().toLowerCase());
   }
-  if (current == original) {
-    return true;
-  } else {
-    return false;
-  }
+  return current == original ? true : false;
 }
 
 //Notes
