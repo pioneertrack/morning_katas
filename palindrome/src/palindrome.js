@@ -1,35 +1,20 @@
-function palindrome () {
-  
+function palindrome(string) {
+  var current = "";
+  var original = string.replace(/\W/g, '').toLowerCase();
+  var letterArray = string.replace(/\W/g, '').split('');
+  var i = 0;
+  while (i < letterArray.length) {
+    current = current.concat(letterArray.pop().toLowerCase());
+  }
+  if (current == original) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-
-
-
-
-
-
-// Test.assert_equals(palindrome("Amore, Roma"), true)
-// Test.assert_equals(palindrome("A man, a plan, a canal: Panama"), true)
-// Test.assert_equals(palindrome("No 'x' in 'Nixon'"), true)
-// Test.assert_equals(palindrome("Abba Zabba, you're my only friend"), false)
-
-// function zipObject(keys, values) {
-//   var myHash = {};
-//   var i = 0;
-//   if (!keys && !values) {
-//     return {};
-//   } else {
-//     while (i < keys.length) {
-//       if (Array.isArray(keys[0])) {
-//         myHash[keys[i][0]] = keys[i][1];
-//       } else if (keys && values) {
-//         myHash[keys[i]] = values[i];
-//       } else if (keys && values === undefined) {
-//         myHash[keys[i]] = undefined;
-//       }
-//       i++;
-//     }
-//     return myHash;
-//   }
-// }
-
+//Notes
+// 1. replace non-word chars and whitespace with no space
+// 2. split string by no space (i.e., by character) into letter array; must be a letter array to pop off individual letters
+// 3. iterate over letter array, pop last element off array and concatenate with current
+// 4. compare current with original
