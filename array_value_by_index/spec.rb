@@ -36,6 +36,16 @@ describe Parser do
 
   end
 
+  describe '#find_value' do 
+
+    subject(:parser) { Parser.new(['a', 'b', 'c']) }
+
+    it 'should try to retrieve the value of the array at the index provided' do
+      expect(parser.data.find_value(1, 'd').should eq('b'))
+    end
+
+  end
+
 end
 
 
