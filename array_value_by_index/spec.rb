@@ -40,8 +40,24 @@ describe Parser do
 
     subject(:parser) { Parser.new(['a', 'b', 'c']) }
 
-    it 'should try to retrieve the value of the array at the index provided' do
-      expect(parser.data.find_value(1, 'd').should eq('b'))
+    it 'should retrieve the value of the array at the index provided' do
+      expect(parser.find_value(1, 'd').should eq('b'))
+    end
+
+    it 'should retrieve the value of the array at the index provided' do
+      expect(parser.find_value(0, 'd').should eq('a'))
+    end
+
+    it 'should retrieve the value of the array at the index provided' do
+      expect(parser.find_value(2, 'd').should eq('c'))
+    end
+
+    it 'should return the default if the index is out of bounds' do
+      expect(parser.find_value(5, 'd').should eq('d'))
+    end
+
+    it 'should return the default if the index is out of bounds' do
+      expect(parser.find_value(4, 'd').should eq('d'))
     end
 
   end
