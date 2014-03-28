@@ -1,6 +1,11 @@
 //describe is a function and we are feeding it two arguments/params(a string "#slope" & an anonymous function)
    
-describe("#Line")
+describe("The Line constructor", function() {
+  it('some other test', function() {
+    var line = new Line([2, 7], [7, 2]);
+    expect(line).not.toBe(null);
+  });
+});
 
 describe("#getSlope", function() {
   
