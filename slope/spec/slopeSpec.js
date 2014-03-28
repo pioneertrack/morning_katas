@@ -1,5 +1,7 @@
 //describe is a function and we are feeding it two arguments/params(a string "#slope" & an anonymous function)
    
+describe("#Line")
+
 describe("#getSlope", function() {
   
   it("should calculate the slope of a line between two points", function() {
