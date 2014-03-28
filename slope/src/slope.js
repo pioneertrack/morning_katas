@@ -1,16 +1,7 @@
-function palindrome(string) {
-  var current = "";
-  var original = string.replace(/\W/g, '').toLowerCase();
-  var letterArray = string.replace(/\W/g, '').split('');
-  var i = 0;
-  while (i < letterArray.length) {
-    current = current.concat(letterArray.pop().toLowerCase());
-  }
-  return current == original ? true : false;
+function getSlope(point1, point2) {
+
 }
 
-//Notes
-// 1. replace non-word chars and whitespace with no space
-// 2. split string by no space (i.e., by character) into letter array; must be a letter array to pop off individual letters
-// 3. iterate over letter array, pop last element off array and concatenate with current
-// 4. compare current with original
+// Description:
+
+// Your challenge is to write a function named getSlope(p1, p2) that calculates the slope of the line through two points. Each point that the function takes in is an array 2 elements long. The first number is the x coordinate and the second number is the y coordinate. If the line through the two points is vertical, the function should return null. If the same point is given twice, the function should return null.
