@@ -1,15 +1,17 @@
 //birthday constructor
 function Birthday(date) {
-  this.date = date
+  this.month = date.getMonth().toString();
+  this.day = date.getDate().toString();
+  this.year = date.getFullYear().toString();
+  this.dateString = this.month + this.day + this.year
 }
 
 //Birthday functions
 Birthday.prototype.getMagicNumber = function() {
-  var dateString = this.date.replace(/\//g, '')
   var current = 0;
   var i = 0;
-  while (i < dateString.length) {
-    current += parseInt(dateString[i]);
+  while (i < this.dateString.length) {
+    current += parseInt(this.dateString[i]);
     if (current >= 10) {
       current = current.toString();
       current = parseInt(current[0]) + parseInt(current[1]);

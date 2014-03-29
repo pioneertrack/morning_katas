@@ -1,7 +1,7 @@
 //birthday constructor tests
 describe("The Birthday constructor", function() {
 
-  var birthday = new Birthday("04/02/2008");
+  var birthday = new Birthday(new Date(2008,04,02));
 
   it('creates a new Birthday object', function() {
     expect(birthday).toBeDefined();
@@ -10,10 +10,12 @@ describe("The Birthday constructor", function() {
     // expect(Object.getPrototypeOf(birthday)).toEqual('object');
   });
 
-  it('has a date attribute', function () {
-    expect(birthday.date).toBeDefined();
-    expect(typeof(birthday.date)).toEqual('string');
-    expect(birthday.date.length).toEqual(10);
+  it('should respond to attr methods', function () {
+    expect(birthday.month).toBeDefined();
+    expect(birthday.month).toEqual('4');
+    expect(birthday.day).toEqual('2');
+    expect(birthday.year).toEqual('2008');
+    expect(birthday.dateString).toEqual('422008');
   });
 });
 
@@ -21,22 +23,22 @@ describe("The Birthday constructor", function() {
 describe("#getMagicNumber", function() {
 
   it("should return the numerology for a birthday", function() {
-    var birthday = new Birthday("04/02/2008");
+    var birthday = new Birthday(new Date(2008,04,02));
     expect(birthday.getMagicNumber()).toEqual(7)
   });
 
   it("should return the numerology for a birthday", function() {
-    var birthday = new Birthday("01/01/1998");
+    var birthday = new Birthday(new Date(1998,01,01));
     expect(birthday.getMagicNumber()).toEqual(2)
   });
 
   it("should return the numerology for a birthday", function() {
-    var birthday = new Birthday("10/22/1977");
+    var birthday = new Birthday(new Date(1977,10,22));
     expect(birthday.getMagicNumber()).toEqual(2)
   });
 
   it("should never return a value greater than 9", function() {
-    var birthday = new Birthday("10/22/1977");
+    var birthday = new Birthday(new Date(1977,10,22));
     expect(birthday.getMagicNumber()).toBeLessThan(10)
   });
 
