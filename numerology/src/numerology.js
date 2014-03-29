@@ -9,7 +9,7 @@ Birthday.prototype.getMagicNumber = function() {
   var i = 0;
   while (i < this.dateString.length) {
     current += parseInt(this.dateString[i]);
-    if (current >= 10) {
+    if (current > 9) {
       current = Number(String(current)[0]) + Number(String(current)[1]);
     }
     i++
