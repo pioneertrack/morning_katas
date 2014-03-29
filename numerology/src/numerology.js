@@ -3,7 +3,7 @@ function Birthday(date) {
   this.dateString = '' + date.getMonth() + date.getDate() + date.getFullYear();
 }
 
-//Birthday functions
+//Birthday methods
 Birthday.prototype.getMagicNumber = function() {
   var current = 0;
   var i = 0;

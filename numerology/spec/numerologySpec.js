@@ -15,7 +15,7 @@ describe("The Birthday constructor", function() {
   });
 });
 
-//#getMagicNumber prototype tests
+//#getMagicNumber method tests
 describe("#getMagicNumber", function() {
 
   it("should return the numerology for a birthday", function() {
