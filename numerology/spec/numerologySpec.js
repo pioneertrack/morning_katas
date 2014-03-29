@@ -2,17 +2,17 @@
 //birthday constructor tests
 describe("The Birthday constructor", function() {
 
+  var birthday = new Birthday("04/02/2008");
+
   it('creates a new Birthday object', function() {
-    var birthday = new Birthday(date);
     expect(birthday).toBeDefined();
     expect(birthday).not.toBe(null);
     expect(birthday).toBeTruthy();
   });
 
   it('has a date attribute', function () {
-    var birthday = new Birthday(date);
     expect(birthday.date).toBeDefined();
-    expect(typeof(birthday.date)).toEqual(String);
+    expect(typeof(birthday.date)).toEqual('string');
     expect(birthday.date.length).toEqual(10);
   });
 
