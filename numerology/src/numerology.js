@@ -1,9 +1,6 @@
 //birthday constructor
 function Birthday(date) {
-  this.month = date.getMonth().toString();
-  this.day = date.getDate().toString();
-  this.year = date.getFullYear().toString();
-  this.dateString = this.month + this.day + this.year
+  this.dateString = '' + date.getMonth() + date.getDate() + date.getFullYear();
 }
 
 //Birthday functions
@@ -13,8 +10,7 @@ Birthday.prototype.getMagicNumber = function() {
   while (i < this.dateString.length) {
     current += parseInt(this.dateString[i]);
     if (current >= 10) {
-      current = current.toString();
-      current = parseInt(current[0]) + parseInt(current[1]);
+      current = Number(String(current)[0]) + Number(String(current)[1]);
     }
     i++
   }

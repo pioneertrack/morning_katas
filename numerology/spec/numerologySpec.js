@@ -7,14 +7,10 @@ describe("The Birthday constructor", function() {
     expect(birthday).toBeDefined();
     expect(birthday).not.toBe(null);
     expect(birthday).toBeTruthy();
-    // expect(Object.getPrototypeOf(birthday)).toEqual('object');
   });
 
-  it('should respond to attr methods', function () {
-    expect(birthday.month).toBeDefined();
-    expect(birthday.month).toEqual('4');
-    expect(birthday.day).toEqual('2');
-    expect(birthday.year).toEqual('2008');
+  it('should respond to proper methods', function () {
+    expect(birthday.dateString).toBeDefined();
     expect(birthday.dateString).toEqual('422008');
   });
 });
@@ -24,6 +20,11 @@ describe("#getMagicNumber", function() {
 
   it("should return the numerology for a birthday", function() {
     var birthday = new Birthday(new Date(2008,04,02));
+    expect(birthday.getMagicNumber()).toEqual(7)
+  });
+
+  it("should return the numerology for a birthday", function() {
+    var birthday = new Birthday(new Date(1964,10,13));
     expect(birthday.getMagicNumber()).toEqual(7)
   });
 
@@ -43,8 +44,3 @@ describe("#getMagicNumber", function() {
   });
 
 });
-
-
-// In numerology, every number has a certain meaning that expresses someones connection to the universe! This single digit integer can be calculated by adding up every digit in the birthdate: year, month, and date. Each time the sum exceeds 9, add up the 2 digits.
-// For example, new Date('06/14/2010') = 5
-// So, what is your number?
