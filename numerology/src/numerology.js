@@ -3,14 +3,18 @@ function Birthday(date) {
   this.date = date
 }
 
-Birthday.protoype.getMagicNumber = function() {
-  
+//Birthday functions
+Birthday.prototype.getMagicNumber = function() {
+  var dateString = this.date.replace(/\//g, '')
+  var current = 0;
+  var i = 0;
+  while (i < dateString.length) {
+    current += parseInt(dateString[i]);
+    if (current >= 10) {
+      current = current.toString();
+      current = parseInt(current[0]) + parseInt(current[1]);
+    }
+    i++
+  }
+  return current;
 }
-
-// Line.prototype.getSlope = function() {
-//   var yDiff = this.point1.pop() - this.point2.pop();
-//   var xDiff = this.point1.pop() - this.point2.pop();
-//   var slope = yDiff / xDiff;
-//   return isNaN(slope) || slope == Infinity ? null : slope
-// }
-
