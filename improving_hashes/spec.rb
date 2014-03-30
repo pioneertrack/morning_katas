@@ -4,27 +4,43 @@ describe Hash do
 
   describe '#key' do 
 
-    subject(:my_hash) { Hash['a', 100, 'b', 200] }
+    context "Where hash key is a string" do
 
-    it 'should return the value of the hash key' do 
-      expect(my_hash.a).to eq(100)
+      subject(:my_hash) { Hash['a', 100, 'b', 200] }
+
+      it 'should return the value of the hash key' do 
+        expect(my_hash.a).to eq(100)
+      end
+
+      it 'should return the value of the hash key' do 
+        expect(my_hash.b).to eq(200)
+      end
+
+      it 'should return a NoMethodError exception' do 
+        expect(my_hash.c).to eq(NoMethodError)
+      end
+
     end
 
-    it 'should return the value of the hash key' do 
-      expect(my_hash.b).to eq(200)
+    context "Where hash key is a symbol" do 
+
+      subject(:my_hash) { Hash[:a, 100, :b, 200] }
+
+      it 'should return the value of the hash key' do 
+        expect(my_hash.a).to eq(100)
+      end
+
+      it 'should return the value of the hash key' do 
+        expect(my_hash.b).to eq(200)
+      end
+
+      it 'should return a NoMethodError exception' do 
+        expect(my_hash.c).to eq(NoMethodError)
+      end
+
     end
 
-    it 'should return a NoMethodError exception' do 
-      expect(my_hash.c).to eq(NoMethodError)
-    end
-
-    subject(:my_hash) { {'a' => 1} }
-    
-    it 'should return the value of the hash key' do
-      expect(my_hash.a).to eq(1)
-    end
-
-    context "Methods that already exist in Hash class" do 
+    context "Where hash key is a method that already exists in the Hash class" do 
 
       subject(:my_hash) { Hash['a', 100, 'b', 200, 'c', 300] }
 
