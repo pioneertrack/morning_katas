@@ -36,6 +36,10 @@ describe Hash do
         expect(subject.values).to eq([100, 200, 300])
       end
 
+      it 'should respond properly to methods that already exist' do 
+        expect(subject.flatten).to eq([a, 100, b, 200, c, 300])
+      end
+
     end
 
 
