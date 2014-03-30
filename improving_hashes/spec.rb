@@ -17,7 +17,7 @@ describe Hash do
       end
 
       it 'should return a NoMethodError exception' do 
-        expect(my_hash.c).to eq(NoMethodError)
+        expect(my_hash.c).to raise_error(NoMethodError)
       end
 
     end
@@ -35,7 +35,7 @@ describe Hash do
       end
 
       it 'should return a NoMethodError exception' do 
-        expect(my_hash.c).to eq(NoMethodError)
+        expect(my_hash.c).to raise_error(NoMethodError)
       end
 
     end
