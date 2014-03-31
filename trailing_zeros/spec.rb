@@ -2,10 +2,10 @@ require './trailing_zeros.rb'
 
 describe '#intialize' do 
 
-  subject(:parser) = Parser.new(12)
+  subject(:parser) { Parser.new(12) }
 
   it 'should create a new instance of the class Parser' do 
-    parser.is_a(Parser).should be_true
+    parser.is_a?(Parser).should be_true
   end
 
   it 'should have an attribute named num' do 
@@ -14,6 +14,14 @@ describe '#intialize' do
 
   it 'should respond to proper methods' do 
     parser.should respond_to(:num)
+  end
+
+  context "attribute" do
+
+    it 'should be an instance of Fixnum' do
+      expect(parser.num.class).to be(Fixnum)
+    end
+
   end
 
 end

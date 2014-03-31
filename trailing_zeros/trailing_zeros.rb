@@ -1,3 +1,13 @@
+class Parser
+
+  attr_reader :num
+
+  def initialize num
+    @num = num
+  end
+
+end
+
 # Description:
 
 # Write a program that will calculate the number of trailing zeros in a factorial of a given number.
