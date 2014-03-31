@@ -18,29 +18,27 @@ class Parser
     current
   end
 
-  def find_max_k
+  def find_max_exponent #returns the exponent of 5 where 5**exponent is < self.num
     current = 5
-    i = 1
+    exponent = 1
     while current < self.num
-      current**=i
-      i+=1
+      current**=exponent
+      exponent+=1
     end
-    i-2
+    exponent-2 #subtract two to get the max exponent
   end
 
   def calculate_trailing_zeros
     num = self.num
     current = 0
-    i = find_max_k
-    return 0 if num == 0
-    return num / 5 if find_max_k < 2
-    find_max_k.times do
-      current += num / 5**(i)
+    i = find_max_exponent
+    return 0 if num == 0 #handles edge case where 0! = 1
+    find_max_exponent.times do
+      current += num / 5**(i) #calculates the multiplicity of the prime factor 5 in n!
       i-=1
     end
     current
   end
-
 
   def count_trailing_zeros
     self.factorial.to_s.match(/(0*)$/)
