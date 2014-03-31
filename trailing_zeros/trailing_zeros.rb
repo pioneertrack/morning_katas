@@ -12,14 +12,14 @@ class Parser
     num = self.num
     current = num
     (num-1).times do
-      current *= num-1
-      num--
+      current *= num-=1
     end
     current
   end
 
   def count_trailing_zeros
-    
+    self.factorial.to_s.match(/(0*)$/)
+    $1.length
   end
 
 end
