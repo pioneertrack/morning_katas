@@ -52,18 +52,22 @@ describe Parser do
       expect(parser.find_value(2, 'd').should eq('c'))
     end
 
-    it 'should return the default if the index is out of bounds' do
-      expect(parser.find_value(5, 'd').should eq('d'))
-    end
+    context "Where index is out of bounds" do
 
-    it 'should return the default if the index is out of bounds' do
-      expect(parser.find_value(-5, 'd').should eq('d'))
-    end
+      it 'should return the default if the index is out of bounds' do
+        expect(parser.find_value(5, 'd').should eq('d'))
+      end
 
-    it 'should return the default if the index is out of bounds' do
-      expect(parser.find_value(4, 'd').should eq('d'))
-    end
+      it 'should return the default if the index is out of bounds' do
+        expect(parser.find_value(-5, 'd').should eq('d'))
+      end
 
+      it 'should return the default if the index is out of bounds' do
+        expect(parser.find_value(4, 'd').should eq('d'))
+      end
+
+    end
+      
   end
 
 end
