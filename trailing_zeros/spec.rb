@@ -8,15 +8,15 @@ describe '#intialize' do
     parser.is_a?(Parser).should be_true
   end
 
-  it 'should have an attribute named num' do 
-    parser.num.should be_true
-  end
-
-  it 'should respond to proper methods' do 
-    parser.should respond_to(:num)
-  end
-
   context "attribute" do
+
+    it 'should have an attribute named num' do 
+      parser.num.should be_true
+    end
+
+    it 'should respond to proper methods' do 
+      parser.should respond_to(:num)
+    end
 
     it 'should be an instance of Fixnum' do
       expect(parser.num.class).to be(Fixnum)
