@@ -6,6 +6,16 @@ class Parser
     @num = num
   end
 
+  def zeros
+    num = self.num
+    array = [num]
+    (num-1).times do
+      array << num - 1
+      num-=1
+    end
+    array
+  end
+
 end
 
 # Description:
