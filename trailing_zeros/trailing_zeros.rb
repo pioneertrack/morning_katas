@@ -1,3 +1,5 @@
+require 'debugger'
+
 class Parser
 
   attr_reader :num
@@ -6,14 +8,18 @@ class Parser
     @num = num
   end
 
-  def zeros
+  def factorial
     num = self.num
-    array = [num]
+    current = num
     (num-1).times do
-      array << num - 1
-      num-=1
+      current *= num-1
+      num--
     end
-    array
+    current
+  end
+
+  def count_trailing_zeros
+    
   end
 
 end
