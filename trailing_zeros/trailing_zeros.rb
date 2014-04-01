@@ -19,11 +19,12 @@ class Parser
   end
 
   def find_max_exponent #returns the exponent of 5 where 5**exponent is < self.num
-    current = 5
-    exponent = 1
-    while current < self.num
-      current**=exponent
-      exponent+=1
+    current = 0
+    exponent = 0
+    while current < self.num do #1000
+      #debugger
+      current = 5**exponent+=1 #5, 25, 125, 625
+      exponent+=1 # 2, 3, 4, 5, 6
     end
     exponent-2 #subtract two to get the max exponent
   end
@@ -48,8 +49,10 @@ class Parser
 end
 
 
-# Test Passed: Value == 0
-# Test Failed: Expected: 1, instead got: 0
-# Test Passed: Value == 7
-# Test Passed: Value == 24
-# Test Passed: Value == 249
+
+
+
+
+
+
+

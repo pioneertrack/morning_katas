@@ -34,6 +34,16 @@ describe '#zeros' do
   end
 
   it 'should calculate the number of trailing zeros of N!' do
+    parser = Parser.new(12)
+    expect(parser.calculate_trailing_zeros).to eq(2)
+  end
+
+  it 'should calculate the number of trailing zeros of N!' do
+    parser = Parser.new(19)
+    expect(parser.calculate_trailing_zeros).to eq(3)
+  end
+
+  it 'should calculate the number of trailing zeros of N!' do
     parser = Parser.new(10)
     expect(parser.calculate_trailing_zeros).to eq(2)
   end
@@ -56,6 +66,16 @@ describe '#zeros' do
   it 'should calculate the number of trailing zeros of N!' do
     parser = Parser.new(50)
     expect(parser.calculate_trailing_zeros).to eq(12)
+  end
+
+  it 'should calculate the number of trailing zeros of N!' do
+    parser = Parser.new(100)
+    expect(parser.calculate_trailing_zeros).to eq(24)
+  end
+
+  it 'should calculate the number of trailing zeros of N!' do
+    parser = Parser.new(1000)
+    expect(parser.find_max_exponent).to eq(4)
   end
 
 end 
