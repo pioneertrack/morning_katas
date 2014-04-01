@@ -39,7 +39,7 @@ class Parser
     current
   end
 
-  def count_trailing_zeros #alternate solution calculates N!'s trailing zero by literally counting them'
+  def count_trailing_zeros #alternate solution calculates N!'s trailing zeros by literally counting them'
     self.factorial.to_s.match(/(0*)$/)
     $1.nil? ? 0 : $1.length 
   end
