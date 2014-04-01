@@ -18,15 +18,13 @@ class Parser
     current
   end
 
-  def find_max_exponent #returns the exponent of 5 where 5**exponent is < self.num
+  def find_max_exponent #returns the max exponential of 5 that is less than self.num
     current = 0
     exponent = 0
-    while current < self.num do #1000
-      #debugger
+    while current < self.num do 
       current = 5**exponent+=1 #5, 25, 125, 625
-      exponent+=1 # 2, 3, 4, 5, 6
     end
-    exponent-2 #subtract two to get the max exponent
+    exponent-1
   end
 
   def calculate_trailing_zeros
