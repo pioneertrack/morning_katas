@@ -8,11 +8,11 @@ describe Hash do
 
     context 'parameter errors' do 
 
-      it 'should raise an error if less than one parameter are given' do 
+      it 'should raise an error if less than one parameter is given' do 
         expect{subject.get_value}.to raise_error(ArgumentError) # note the curly brace syntax defines a block object upon which you can place the expectation; this allows rspec to catch the error and provide its own handling (cf. parantheses, which execute the code before passing it to rspec)
       end
 
-      it 'should not raise an error if at least one parameters are given' do
+      it 'should not raise an error if at least one parameter are given' do
         expect{subject.get_value("")}.not_to raise_error(ArgumentError)
       end
 
@@ -20,7 +20,7 @@ describe Hash do
 
     context 'expected results' do
 
-      it 'should not raise an error if at least one parameters are given' do
+      it 'should return the default if no keys are given' do
         expect(subject.get_value("wow")).to eq("wow")
       end
 
@@ -43,8 +43,7 @@ describe Hash do
       it 'should return the default value if a key does not exist' do
         expect(subject.get_value("conf", :name, :path)).to eq("conf")
       end
-
-        
+   
     end
 
   end
