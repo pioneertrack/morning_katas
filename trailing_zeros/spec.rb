@@ -26,7 +26,30 @@ describe '#intialize' do
 
 end
 
-describe '#zeros' do 
+describe "#max_exponent" do
+
+  it 'should calcalute the max exponent of 5 that is less than self.num' do
+    parser = Parser.new(25)
+    expect(parser.max_exponent).to eq(1)
+  end
+
+  it 'should calcalute the max exponent of 5 that is less than self.num' do
+    parser = Parser.new(100)
+    expect(parser.max_exponent).to eq(2)
+  end
+
+  it 'should calcalute the max exponent of 5 that is less than self.num' do
+    parser = Parser.new(625)
+    expect(parser.max_exponent).to eq(3)
+  end
+
+  it 'should calcalute the max exponent of 5 that is less than self.num' do
+    parser = Parser.new(1000)
+    expect(parser.max_exponent).to eq(4)
+  end
+end
+
+describe '#calculate_trailing_zeros' do 
 
   it 'should calculate the number of trailing zeros of N!' do
     parser = Parser.new(32)
@@ -71,11 +94,6 @@ describe '#zeros' do
   it 'should calculate the number of trailing zeros of N!' do
     parser = Parser.new(100)
     expect(parser.calculate_trailing_zeros).to eq(24)
-  end
-
-  it 'should calculate the number of trailing zeros of N!' do
-    parser = Parser.new(1000)
-    expect(parser.find_max_exponent).to eq(4)
   end
 
 end 

@@ -18,7 +18,7 @@ class Parser
     current
   end
 
-  def max_exponent #returns the max exponential of 5 that is less than self.num
+  def max_exponent #returns the max exponent of 5 that is less than self.num
     current = 0
     exponent = 0
     while current < self.num do 
