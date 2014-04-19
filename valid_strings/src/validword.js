@@ -3,12 +3,16 @@
     this.first = this.content[0];
   }
 
-  var checkTruthiness = function(value, index, array) {
+  var allElementsAreTrue = function(value, index, array) {
     if (value === true) {
       return true;
     } else {
       return false;
     }
+  }
+
+  var oneElementIsTrue = function(array) {
+    return array.indexOf(true) != -1 ? true : false;
   }
 
   Dictionary.prototype.validWord = function (string) {
@@ -26,9 +30,9 @@
         }
         i += 1;
       }
-      outcome = results.every(checkTruthiness)
+      outcome = results.every(allElementsAreTrue);
       output.push(outcome);
     });    
-    return output.indexOf(true) != -1 ? true : false;
+    return oneElementIsTrue(output);
   };
 
