@@ -15,7 +15,7 @@ describe Parser do
     end
 
     it 'should have an attribute named data' do
-        parser.data.should be_true
+      parser.data.should be_true
     end
 
     it 'should respond to proper methods' do 
