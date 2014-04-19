@@ -54,4 +54,14 @@ describe("#validWord", function() {
   it("should return false if a string is not comprised of a word from the dictionary", function () {
     expect(dictionary.validWord('DollyParton')).toBe(false);
   });
+
+  it("should return true if a string is contains of a word from the dictionary", function () {
+    dictionary = new Dictionary(['wars', 'code']);
+    expect(dictionary.validWord('codewars')).toBe(true);
+  });
+
+  it("should return true if a string contains a word from the dictionary", function () {
+    dictionary = new Dictionary(['code', 'wars']);
+    expect(dictionary.validWord('codecodewars')).toBe(true);
+  });
 });
