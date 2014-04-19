@@ -55,13 +55,21 @@ describe("#validWord", function() {
     expect(dictionary.validWord('DollyParton')).toBe(false);
   });
 
+  // "out-of-order words"
   it("should return true if a string is contains of a word from the dictionary", function () {
     dictionary = new Dictionary(['wars', 'code']);
     expect(dictionary.validWord('codewars')).toBe(true);
   });
 
+  // repetition in string
   it("should return true if a string contains a word from the dictionary", function () {
     dictionary = new Dictionary(['code', 'wars']);
     expect(dictionary.validWord('codecodewars')).toBe(true);
+  });
+
+  // overlapping words
+  it("should return false if a string contains a word made up of overlapping dictionary entries", function () {
+    dictionary = new Dictionary(['cod', 'dewa', 'ars']);
+    expect(dictionary.validWord('codewars')).toBe(false);
   });
 });
