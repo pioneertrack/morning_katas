@@ -34,6 +34,6 @@ describe("#validWord", function() {
   });
 
   it("should return false if a string is not comprised of a word from the dictionary", function () {
-    expect(dictionary.validWord('Dolly Parton')).toBe(false);
+    expect(dictionary.validWord('DollyParton')).toBe(false);
   });
 });
