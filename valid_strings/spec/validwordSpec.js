@@ -39,6 +39,18 @@ describe("#validWord", function() {
     expect(dictionary.validWord('evildead')).toBe(true);
   });
 
+  it("should return true if a given a string is comprised of one or more words form the dictionary", function() {
+    expect(dictionary.validWord('dead')).toBe(true);
+  });
+
+  it("should return true if a given a string is comprised of one or more words form the dictionary", function() {
+    expect(dictionary.validWord('evilzombies')).toBe(true);
+  });
+
+  it("should return true if a given a string is comprised of one or more words form the dictionary", function() {
+    expect(dictionary.validWord('rabbitzombies')).toBe(true);
+  });
+
   it("should return false if a string is not comprised of a word from the dictionary", function () {
     expect(dictionary.validWord('DollyParton')).toBe(false);
   });
