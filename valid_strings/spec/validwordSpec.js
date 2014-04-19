@@ -29,6 +29,12 @@ describe("The Dictionary constructor", function() {
 // #validWord method tests
 describe("#validWord", function() {
 
+  var dictionary; 
+
+  beforeEach(function() {
+    dictionary = new Dictionary(['evil', 'dead', 'rabbit', 'zombies']);
+  });
+
   it("should return true if a given a string is comprised of one or more words form the dictionary", function() {
     expect(dictionary.validWord('evildead')).toBe(true);
   });

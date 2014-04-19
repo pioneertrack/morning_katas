@@ -4,41 +4,28 @@
   }
 
   Dictionary.prototype.validWord = function (string) {
-    var content = dictionary.content;
+    var content = this.content;
+    var output = [];
+    //content = ["evil", "dead", "rabbit", "zombies"] 
     content.forEach(function (word) {
       var i = 0;
       var results = [];
-      var output;
-      //['evil', 'dead', 'rabbit', 'zombies']
       while (i < word.length) {
-        if (word[i] == string[i]) {
+        if (word[i] === string[i]) {
           results.push(true);
         } else {
           results.push(false);
         }
         i += 1;
       }
-      console.log(word);
-      console.log(results);
-      output = results.every(function (value) {
-        value = true;
+      outcome = results.every(function (value, index, ar) {
+        if (value === true) {
+          return true;
+        } else {
+          return false;
+        }
       });
-      console.log(output);
-    });
+      output.push(outcome);
+    });    
+    return output.indexOf(true) != -1 ? true : false;
   };
-
-// > dictionary.validWord('evil');
-// evil
-// [ true, true, true, true ]
-// false
-// dead
-// [ false, false, false, false ]
-// false
-// rabbit
-// [ false, false, false, false, false, false ]
-// false
-// zombies
-// [ false, false, false, false, false, false, false ]
-// false
-// undefined
-// >
