@@ -72,4 +72,10 @@ describe("#validWord", function() {
     dictionary = new Dictionary(['cod', 'dewa', 'ars']);
     expect(dictionary.validWord('codewars')).toBe(false);
   });
+
+  //overlapping AND discreet
+  it("should return true if a string is comprised of both overlapping and discreet words", function () {
+    dictionary = new Dictionary(['foob', 'bar', 'foo']);
+    expect(dictionary.validWord('foobar')).toBe(true);
+  });
 });
