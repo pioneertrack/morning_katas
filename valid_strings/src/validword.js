@@ -11,7 +11,7 @@
         i++;
       }
     });
-    return i >= length ? true : false;
+    return i == length ? true : false;
   };
 
   var oneElementIsTrue = function(array) {
@@ -20,33 +20,30 @@
 
   Dictionary.prototype.validWord = function (string) {
     var content = this.content;
-    var outcomeForEachWord = [];
+    var matchArrayForEachWord = [];
     var sumLengthOfMatches = 0;
     //content = ["evil", "dead", "rabbit", "zombies"] 
     content.forEach(function (word) {
-      debugger
       var i = 0;
       var j = 0;
-      var outcomeForEachLetter = [];
+      var matchArrayForEachLetter = [];
       while (i < string.length && word[j] != undefined) {
         //codewars
         if (word[j] === string[i]) {
           // cod codewars
-          outcomeForEachLetter.push(true);
+          matchArrayForEachLetter.push(true);
           j++;
         } else {
-          outcomeForEachLetter.push(false);
+          matchArrayForEachLetter.push(false);
         }
         i+=1;
       }
-      debugger
-      if (enoughElementsAreTrue(outcomeForEachLetter, word.length) === true) {
-        sumLengthOfMatches += outcomeForEachLetter.length;
-        outcomeForEachWord.push(true);
+      if (enoughElementsAreTrue(matchArrayForEachLetter, word.length) === true) {
+        sumLengthOfMatches += matchArrayForEachLetter.length;
+        matchArrayForEachWord.push(true);
       }   
     });   
-    debugger
-    return sumLengthOfMatches > string.length ? false : oneElementIsTrue(outcomeForEachWord);
+    return sumLengthOfMatches > string.length ? false : oneElementIsTrue(matchArrayForEachWord);
   };
 
 
