@@ -3,7 +3,7 @@
     this.first = this.content[0];
   }
 
-  var allElementsAreTrue = function(value, index, array) {
+  var allElementsAreTrue = function (value, index, array) {
     if (value === true) {
       return true;
     } else {
@@ -12,7 +12,7 @@
   }
 
   var sortByLength = function (array) {
-    array.sort(function(a,b){
+    array.sort(function (a, b) {
       return a.length - b.length;
     });
     return array;
@@ -21,8 +21,8 @@
   var deleteWordsThatContainOtherWords = function (array) {
     var output;
     sortByLength(array).filter(function (value, index, array) {
-      if (array[index+1] !== undefined && array[index+1].indexOf(value) !== -1) {
-        array.splice([index+1]);
+      if (array[index + 1] !== undefined && array[index + 1].indexOf(value) !== -1) {
+        array.splice([index + 1]);
       }
     });
     return array
@@ -38,7 +38,7 @@
     });
     return i == length ? true : false;
   };
-  var oneElementIsTrue = function(array) {
+  var oneElementIsTrue = function (array) {
     return array.indexOf(true) != -1 ? true : false;
   }
 
@@ -46,7 +46,7 @@
     var content = this.content;
     var matchArrayForEachWord = [];
     var sumLengthOfMatches = 0;
-    wordArray = deleteWordsThatContainOtherWords(content);
+    var wordArray = deleteWordsThatContainOtherWords(content);
     wordArray.forEach(function (word) {
       var i = 0;
       var j = 0;
@@ -60,12 +60,12 @@
         } else {
           matchArrayForEachLetter.push(false);
         }
-        i+=1;
+        i += 1;
       }
       if (enoughElementsAreTrue(matchArrayForEachLetter, word.length) === true) {
         sumLengthOfMatches += word.length;
         matchArrayForEachWord.push(true);
-      }   
+      }
     });
     if (matchArrayForEachWord.length === 0) {
       return false;

@@ -55,7 +55,14 @@ describe("#validWord", function() {
     expect(dictionary.validWord('DollyParton')).toBe(false);
   });
 
-  //"out-of-order words"
+  // extra words in string
+  it("should return false if a string contains a word from the dictionary but contains other words that are not in the dictionary", function () {
+    dictionary = new Dictionary(['wars', 'code']);
+    expect(dictionary.validWord('codewar')).toBe(false);
+  });
+
+  Test.expect(validWord(['code', 'wars'], 'codewar') === false);
+  // out-of-order words
   it("should return true if a string is contains of a word from the dictionary", function () {
     dictionary = new Dictionary(['wars', 'code']);
     expect(dictionary.validWord('codewars')).toBe(true);
