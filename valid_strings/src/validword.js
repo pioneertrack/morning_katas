@@ -39,10 +39,10 @@
         i+=1;
       }
       if (enoughElementsAreTrue(matchArrayForEachLetter, word.length) === true) {
-        sumLengthOfMatches += matchArrayForEachLetter.length;
+        sumLengthOfMatches += word.length;
         matchArrayForEachWord.push(true);
       }   
-    });   
+    }); 
     return sumLengthOfMatches > string.length ? false : oneElementIsTrue(matchArrayForEachWord);
   };
 
