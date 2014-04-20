@@ -3,13 +3,16 @@
     this.first = this.content[0];
   }
 
-  var allElementsAreTrue = function(value, index, array) {
-    if (value === true) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  var enoughElementsAreTrue = function (array, length) {
+    //[false, false, true, true, true, true]
+    i = 0;
+    array.forEach(function (outcome) {
+      if (outcome === true) {
+        i++;
+      }
+    });
+    return i >= length ? true : false;
+  };
 
   var oneElementIsTrue = function(array) {
     return array.indexOf(true) != -1 ? true : false;
@@ -21,28 +24,28 @@
     var sumLengthOfMatches = 0;
     //content = ["evil", "dead", "rabbit", "zombies"] 
     content.forEach(function (word) {
+      debugger
       var i = 0;
       var j = 0;
       var outcomeForEachLetter = [];
       while (i < string.length && word[j] != undefined) {
         //codewars
-        debugger
         if (word[j] === string[i]) {
           // cod codewars
-          OutcomeForEachLetter.push(true);
+          outcomeForEachLetter.push(true);
           j++;
         } else {
-          OutcomeForEachLetter.push(false);
+          outcomeForEachLetter.push(false);
         }
         i+=1;
       }
       debugger
-      if (outcomeForEachLetter.every(allElementsAreTrue) === true) {
+      if (enoughElementsAreTrue(outcomeForEachLetter, word.length) === true) {
         sumLengthOfMatches += outcomeForEachLetter.length;
         outcomeForEachWord.push(true);
       }   
     });   
-    debugger 
+    debugger
     return sumLengthOfMatches > string.length ? false : oneElementIsTrue(outcomeForEachWord);
   };
 
