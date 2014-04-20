@@ -46,12 +46,3 @@
     return sumLengthOfMatches > string.length ? false : oneElementIsTrue(matchArrayForEachWord);
   };
 
-
- // if the sum of the length of all winning matches != string.length ? false : output
-
-  // arghhhhhhhh
-  // dictionary = new Dictionary(['cod', 'dewa', 'ars']);
-  //   expect(dictionary.validWord('codewars')).toBe(false);
-//   > string = ['cod', 'dewa', 'ars'].join('');
-// 'coddewaars'
-
