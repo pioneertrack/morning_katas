@@ -11,11 +11,6 @@
     }
   }
 
-//   var a = 'Magic belongs to Jerry Harry Jerry Harry Potter and Banana Joe'.split(' ');
-// a = a.sort()
-// >>>["Banana", "Harry", "Harry", "Jerry", "Jerry", "Joe", "Magic", "Potter", "and", "belongs", "to"]
-// a.filter( function(v,i,o){if(i>=0 && v!==o[i-1]) return v;});
-
   var sortByLength = function (array) {
     array.sort(function(a,b){
       return a.length - b.length;
@@ -23,10 +18,10 @@
     return array;
   }
 
-  var filterOutWordsThatContainOtherWords = function (array) {
+  var deleteWordsThatContainOtherWords = function (array) {
     var output;
     sortByLength(array).filter(function (value, index, array) {
-      if (array[index+1].indexOf(value) !== -1) {
+      if (array[index+1] !== undefined && array[index+1].indexOf(value) !== -1) {
         array.splice([index+1]);
       }
     });
@@ -51,9 +46,8 @@
     var content = this.content;
     var matchArrayForEachWord = [];
     var sumLengthOfMatches = 0;
-    //Test.expect(validWord(['foob', 'bar', 'foo'], 'foobar') === true);
-    wordArray = filterOutWordsThatContainOtherWords(content);
-    content.forEach(function (word) {
+    wordArray = deleteWordsThatContainOtherWords(content);
+    wordArray.forEach(function (word) {
       var i = 0;
       var j = 0;
       var matchArrayForEachLetter = [];
@@ -72,8 +66,10 @@
         sumLengthOfMatches += word.length;
         matchArrayForEachWord.push(true);
       }   
-    }); 
-    if (matchArrayForEachWord.every(allElementsAreTrue)) {
+    });
+    if (matchArrayForEachWord.length === 0) {
+      return false;
+    } else if (matchArrayForEachWord.every(allElementsAreTrue) && sumLengthOfMatches <= string.length) {
       return true;
     } else {
       return sumLengthOfMatches < string.length ? oneElementIsTrue(matchArrayForEachWord) : false;
