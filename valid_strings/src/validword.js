@@ -17,29 +17,33 @@
 
   Dictionary.prototype.validWord = function (string) {
     var content = this.content;
-    var output = [];
+    var outcomeForEachWord = [];
     var sumLengthOfMatches = 0;
     //content = ["evil", "dead", "rabbit", "zombies"] 
     content.forEach(function (word) {
       var i = 0;
       var j = 0;
-      var results = [];
+      var outcomeForEachLetter = [];
       while (i < string.length && word[j] != undefined) {
         //codewars
         debugger
         if (word[j] === string[i]) {
           // cod codewars
-          results.push(true);
+          OutcomeForEachLetter.push(true);
           j++;
         } else {
-          results.push(false);
+          OutcomeForEachLetter.push(false);
         }
         i+=1;
       }
-      outcome = results.every(allElementsAreTrue);
-      output.push(outcome);  
+      debugger
+      if (outcomeForEachLetter.every(allElementsAreTrue) === true) {
+        sumLengthOfMatches += outcomeForEachLetter.length;
+        outcomeForEachWord.push(true);
+      }   
     });   
-    return oneElementIsTrue(output);
+    debugger 
+    return sumLengthOfMatches > string.length ? false : oneElementIsTrue(outcomeForEachWord);
   };
 
 
