@@ -52,9 +52,8 @@
       var j = 0;
       var matchArrayForEachLetter = [];
       while (i < string.length && word[j] != undefined) {
-        //codewars
+        debugger
         if (word[j] === string[i]) {
-          // cod codewars
           matchArrayForEachLetter.push(true);
           j++;
         } else {
@@ -62,17 +61,25 @@
         }
         i += 1;
       }
+      debugger
       if (enoughElementsAreTrue(matchArrayForEachLetter, word.length) === true) {
         sumLengthOfMatches += word.length;
         matchArrayForEachWord.push(true);
+      } else {
+        matchArrayForEachWord.push(false);
       }
     });
+    debugger
     if (matchArrayForEachWord.length === 0) {
       return false;
-    } else if (matchArrayForEachWord.every(allElementsAreTrue) && sumLengthOfMatches <= string.length) {
+    } else if (matchArrayForEachWord.every(allElementsAreTrue) && sumLengthOfMatches < string.length) {
       return true;
+    } else if (matchArrayForEachWord.every(allElementsAreTrue) && sumLengthOfMatches > string.length) {
+      return false;
+    } else if (matchArrayForEachWord.every(allElementsAreTrue) == false && sumLengthOfMatches < string.length) {
+      return false;
     } else {
-      return sumLengthOfMatches < string.length ? oneElementIsTrue(matchArrayForEachWord) : false;
+      return sumLengthOfMatches < string.length ? false : oneElementIsTrue(matchArrayForEachWord);
     }
   };
 

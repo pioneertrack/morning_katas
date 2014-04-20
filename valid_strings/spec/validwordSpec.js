@@ -36,11 +36,11 @@ describe("#validWord", function() {
   });
 
   it("should return true if a given string is comprised of one or more words form the dictionary", function() {
-    expect(dictionary.validWord('evildead')).toBe(true);
+    expect(dictionary.validWord('dead')).toBe(true);
   });
 
   it("should return true if a given string is comprised of one or more words form the dictionary", function() {
-    expect(dictionary.validWord('dead')).toBe(true);
+    expect(dictionary.validWord('evildead')).toBe(true);
   });
 
   it("should return true if a given a string is comprised of one or more words form the dictionary", function() {
@@ -61,7 +61,6 @@ describe("#validWord", function() {
     expect(dictionary.validWord('codewar')).toBe(false);
   });
 
-  Test.expect(validWord(['code', 'wars'], 'codewar') === false);
   // out-of-order words
   it("should return true if a string is contains of a word from the dictionary", function () {
     dictionary = new Dictionary(['wars', 'code']);
