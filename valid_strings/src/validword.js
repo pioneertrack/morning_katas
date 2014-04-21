@@ -28,7 +28,7 @@
     return array
   };
 
-  var enoughElementsAreTrue = function (array, length) {
+  var enoughLettersAreTrue = function (array, length) {
     //[false, false, true, true, true, true]
     i = 0;
     array.forEach(function (outcome) {
@@ -62,7 +62,7 @@
         i += 1;
       }
       debugger
-      if (enoughElementsAreTrue(matchArrayForEachLetter, word.length) === true) {
+      if (enoughLettersAreTrue(matchArrayForEachLetter, word.length) === true) {
         sumLengthOfMatches += word.length;
         matchArrayForEachWord.push(true);
       } else {
