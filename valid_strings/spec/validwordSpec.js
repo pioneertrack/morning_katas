@@ -29,11 +29,11 @@ describe("The Dictionary constructor", function() {
 // #validWord method tests
 describe("#validWord", function() {
 
-  // var dictionary; 
+  var dictionary; 
 
-  // beforeEach(function() {
-  //   dictionary = new Dictionary(['evil', 'dead', 'rabbit', 'zombies']);
-  // });
+  beforeEach(function() {
+    dictionary = new Dictionary(['evil', 'dead', 'rabbit', 'zombies']);
+  });
 
   // it("should return true if a given string is comprised of one or more words form the dictionary", function() {
   //   expect(dictionary.validWord('dead')).toBe(true);
@@ -55,16 +55,16 @@ describe("#validWord", function() {
   //   expect(dictionary.validWord('DollyParton')).toBe(false);
   // });
 
-  // extra words in string
-  it("should return false if a string contains a word from the dictionary but contains other words that are not in the dictionary", function () {
-    dictionary = new Dictionary(['code', 'wars']);
-    expect(dictionary.validWord('codewar')).toBe(false);
-  });
+  // // extra words in string
+  // it("should return false if a string contains a word from the dictionary but contains other words that are not in the dictionary", function () {
+  //   dictionary = new Dictionary(['code', 'wars']);
+  //   expect(dictionary.validWord('codewar')).toBe(false);
+  // });
 
    // extra letters in string
-  it("should return false if a string contains all the words from the dictionary but has extra letters")
+  it("should return false if a string contains all the words from the dictionary but has extra letters", function () {
     dictionary = new Dictionary(['a', 'b', 'c', 'd', 'e', 'f']);
-    expect(dictionary.validWord('abcdefg') === false);
+    expect(dictionary.validWord('abcdefg')).toBe(false);
   });
 
   // // out-of-order words
@@ -73,11 +73,11 @@ describe("#validWord", function() {
   //   expect(dictionary.validWord('codewars')).toBe(true);
   // });
 
-  // // repetition in string
-  // it("should return true if a string contains a word from the dictionary", function () {
-  //   dictionary = new Dictionary(['code', 'wars']);
-  //   expect(dictionary.validWord('codecodewars')).toBe(true);
-  // });
+  // repetition in string
+  it("should return true if a string contains a word from the dictionary", function () {
+    dictionary = new Dictionary(['code', 'wars']);
+    expect(dictionary.validWord('codecodewars')).toBe(true);
+  });
 
   // // overlapping words
   // it("should return false if a string contains a word made up of overlapping dictionary entries", function () {

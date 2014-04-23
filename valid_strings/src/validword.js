@@ -28,6 +28,11 @@
     return array
   };
 
+  var lengthOfWords = function(array, string) {
+    var lengthOfWords = array.join('').length;
+    return lengthOfWords > 0 ? string.length+(lengthOfWords-string.length) : string.length;
+  }
+
   var enoughLettersAreTrue = function (array, length) {
     //[false, false, true, true, true, true]
     i = 0;
@@ -51,7 +56,7 @@
       var i = 0;
       var j = 0;
       var matchArrayForEachLetter = [];
-      while (i < string.length && word[j] != undefined) {
+      while (i < lengthOfWords(wordArray, string) && word[j] != undefined) {
         debugger
         if (word[j] === string[i]) {
           matchArrayForEachLetter.push(true);
