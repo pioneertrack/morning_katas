@@ -61,6 +61,12 @@ describe("#validWord", function() {
     expect(dictionary.validWord('codewar')).toBe(false);
   });
 
+   // extra letters in string
+  it("should return false if a string contains all the words from the dictionary but has extra letters")
+    dictionary = new Dictionary(['a', 'b', 'c', 'd', 'e', 'f']);
+    expect(dictionary.validWord('abcdefg') === false);
+  });
+
   // // out-of-order words
   // it("should return true if a string is contains of a word from the dictionary", function () {
   //   dictionary = new Dictionary(['wars', 'code']);
@@ -84,4 +90,5 @@ describe("#validWord", function() {
   //   dictionary = new Dictionary(['foob', 'bar', 'foo']);
   //   expect(dictionary.validWord('foobar')).toBe(true);
   // });
+
 });
