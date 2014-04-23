@@ -30,7 +30,7 @@
 
   var lengthOfWords = function(array, string) {
     var lengthOfWords = array.join('').length;
-    return lengthOfWords > 0 ? string.length+(lengthOfWords-string.length) : string.length;
+    return lengthOfWords > 0 ? string.length+(lengthOfWords-string.length).abs() : string.length;
   }
 
   var enoughLettersAreTrue = function (array, length) {
