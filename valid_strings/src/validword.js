@@ -29,8 +29,9 @@
   };
 
   var lengthOfWords = function(array, string) {
+    debugger
     var lengthOfWords = array.join('').length;
-    return lengthOfWords > 0 ? string.length+(lengthOfWords-string.length).abs() : string.length;
+    return lengthOfWords > 0 ? string.length+Math.abs(lengthOfWords-string.length) : string.length;
   }
 
   var enoughLettersAreTrue = function (array, length) {
@@ -52,11 +53,12 @@
     var matchArrayForEachWord = [];
     var sumLengthOfMatches = 0;
     var wordArray = deleteWordsThatContainOtherWords(content);
-    wordArray.forEach(function (word) {
+    var length = lengthOfWords(wordArray, string);
+    wordArray.forEach(function (word) { //the problem is here. for each word is not sufficient
       var i = 0;
       var j = 0;
       var matchArrayForEachLetter = [];
-      while (i < lengthOfWords(wordArray, string) && word[j] != undefined) {
+      while (i < length && word[j] != undefined) {
         debugger
         if (word[j] === string[i]) {
           matchArrayForEachLetter.push(true);
