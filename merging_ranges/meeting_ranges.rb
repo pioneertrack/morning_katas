@@ -4,59 +4,67 @@ require 'awesome_print'
 
 class MeetingRanges
 
-  attr_reader :meeting_ranges
+  attr_reader :meeting_times
 
   def initialize(meeting_times_array)
-    @meeting_ranges = meeting_times_array
+    @meeting_times = meeting_times_array
   end
   #SORT
-  def sort_meeting_ranges
-    for outer_index in 0...meeting_ranges.length
+  def sort_meeting_times
+    for outer_index in 0...meeting_times.length
       min_index = outer_index
-      for inner_index in outer_index+1...meeting_ranges.length
-        if meeting_ranges[inner_index][0] < meeting_ranges[min_index][0]
+      for inner_index in outer_index+1...meeting_times.length
+        if meeting_times[inner_index][0] < meeting_times[min_index][0]
           min_index = inner_index
         end
       end
-      meeting_ranges[outer_index], meeting_ranges[min_index] = meeting_ranges[min_index], meeting_ranges[outer_index]
+      meeting_times[outer_index], meeting_times[min_index] = meeting_times[min_index], meeting_times[outer_index]
     end
-    meeting_ranges
+    meeting_times
   end
 
-  def condense_meeting_ranges
+  # def condense_meeting_times
+  #   # sort ranges so we know that meetings that can be merged are adjacent
+  #   # no non-next ranges that could be merged
+  #   sorted_meetings = sort_meeting_times
+  #   merged_meetings = [sort_meeting_times[0]]
+    
+  #   sorted_meetings[1..-1].each_with_index do |current_meeting, index|
+
+  #     # if current meeting start is less then or equal to last merged meeting end
+  #     # merge; use current start time, latest end time
+  #     if current_meeting[0] <= merged_meetings[-1][-1] 
+  #       latest_end_time = [merged_meetings[-1][-1], current_meeting[-1]].max
+  #       merged_meetings[-1] = [merged_meetings[-1][0], latest_end_time]
+  #     else
+  #       # otherwise add current meeting as condensed range
+  #       merged_meetings << current_meeting
+  #     end
+  #   end
+  #   merged_meetings
+  # end
+
+  def condense_meeting_times
     
     # sort ranges so we know that meetings that can be merged are adjacent
     # no non-next ranges that could be merged
-    sorted_meeting_ranges = sort_meeting_ranges
-    condensed_meeting_ranges = []
-    condensed_meeting_range = sorted_meeting_ranges[0]
+    sorted_meetings = sort_meeting_times
+    merged_meetings = [sorted_meetings[0]]
     merged = false
     
-    sorted_meeting_ranges.each_with_index do |current_range, index|
-      # skip if out of range
-      next if sorted_meeting_ranges[index + 1].nil?
-      # skip if on the last pass we merged current with next
-      if merged == true
-        merged = false
-        next
-      end
-      # set next range
-      next_range = sorted_meeting_ranges[index + 1]
+    sorted_meetings[1..-1].each do |current_meeting_start, current_meeting_end|
+      debugger
+      last_merged_meeting_start, last_merged_meeting_end = merged_meetings[-1]
+      debugger
 
-      # if overlap (end time of first is after start of next) merge
-      # use min and max to grab the range bounds
-      if current_range[-1] >= next_range[0] 
-        min_start = [current_range[0], next_range[0]].min
-        max_end = [current_range[-1], next_range[-1]].max
-        condensed_meeting_ranges << [min_start, max_end]
-        # flag as merged
-        merged = true
+      # if current and last meetings overlap, use latest end time
+      if current_meeting_start <= last_merged_meeting_end
+        merged_meetings[-1] = [last_merged_meeting_start, [current_meeting_end, last_merged_meeting_end].max]
       else
-        # otherwise just use current range
-        puts "Condensed range is #{current_range}"
-        condensed_meeting_ranges << current_range
+        # otherwise add the current meeting
+        merged_meetings << [current_meeting_start, current_meeting_end]
       end
     end
-    condensed_meeting_ranges
+    merged_meetings
   end
 end
