@@ -13,7 +13,7 @@ class Deck
   end
 
   def shuffle
-    # iterate over each card and swap it with a randomly select card
+    # iterate over each card and swap it with a randomly selected card
     # each card has the same probability of landing in any given spot (1/52)
     cards.each_with_index do |card, current_index|
       new_index = random
