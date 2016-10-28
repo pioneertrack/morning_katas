@@ -45,4 +45,18 @@ describe("calculator", function() {
       }).toThrowError("This function only accepts array arguments");
     });
   });
+
+  describe("#uniqueValues", function() {
+    it("should return the unique values in an array", function () {
+      var arr = ['banana', 'gophers', 'banana', 'gophers', 'trees', 'apples', 'apples']
+      expect(calculator.uniqueValues(arr)).toEqual(['banana', 'gophers', 'trees', 'apples']);
+    });
+
+    // edge cases
+    // empty array
+    it("should return the unique values in an array", function () {
+      var arr = [];
+      expect(calculator.uniqueValues(arr)).toEqual([]);
+    });
+  });
 })
