@@ -1,0 +1,28 @@
+{
+  "name": "good_morning_katas",
+  "version": "1.0.0",
+  "description": "good_morning_katas ==================",
+  "main": "index.js",
+  "dependencies": {
+    "babel-eslint": "^7.1.0",
+    "eslint": "^3.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.9.0",
+    "eslint-plugin-react": "^6.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chryus/good_morning_katas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chryus/good_morning_katas/issues"
+  },
+  "homepage": "https://github.com/Chryus/good_morning_katas#readme"
+}
