@@ -11,13 +11,13 @@ class Deck {
 		for (var i = 0; i < suits.length; i++) {
 			for (var j = 2; j < 15; j++) {
 				if (j < 11) {
-					deck.push(j + "of " + suits[i]);
+					deck.push(j + " of " + suits[i]);
 				} else if (j == 11) {
 					deck.push("Jack of " + suits[i]);
 				} else if (j == 12) {
 					deck.push("Queen of " + suits[i]);
 				} else if (j == 13) {
-					deck.push("Kind of " + suits[i]);
+					deck.push("King of " + suits[i]);
 				} else { 
 					deck.push("Ace of " + suits[i]);
 				}
@@ -32,8 +32,12 @@ class Deck {
 		let deck = this.newDeck();
 		for (var i = 0; i < deck.length; i++) {
 			let random = this.getRandomIntInclusive(1, 51);
-			deck[i], deck[random] = deck[random], deck[i];
+			// manual swap with temp variable
+			let temp = deck[i];
+			deck[i] = deck[random];
+			deck[random] = temp;
 		}
+		console.log(deck);
 		return deck;
 	}
 

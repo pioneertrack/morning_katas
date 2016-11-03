@@ -19,7 +19,7 @@ describe("Deck", function() {
 
 	describe("#shuffe", function() {
 		it("should have swapped some cards after shuffle", function() {
-			expect(deck.shuffle()).not.toBe(deck.newDeck());
+			expect(deck.shuffle()).not.toEqual(deck.newDeck()); // use toEqual bc we aren't testing strict equivalence
 		})
 
 		it("should have the same number of cards after shuffle", function() {

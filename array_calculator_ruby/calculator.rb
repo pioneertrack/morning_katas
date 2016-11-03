@@ -32,7 +32,6 @@ class Calculator
 			end
 			uniques << val if exists == false
 		end
-
 		return uniques
 	end
 
