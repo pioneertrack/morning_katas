@@ -8,34 +8,35 @@ class Calculator {
 	// keep track of best answer so far - max profit - and compare with potential profit for each sell
 	// get_max_profit(stock_prices_yesterday)
 	getMaxProfit(stockPricesYesterday) {
-		let minPrice = stockPricesYesterday[0];
+		if (Array.isArray(stockPricesYesterday) === false) {
+			throw new Error("This function only accepts array arguments");
+		}
 		let maxProfit = stockPricesYesterday[1] - stockPricesYesterday[0];
+		let minPrice = stockPricesYesterday[0];
 
-		for (var i = 1; i < stockPricesYesterday.length; i++) {
+		for (let i = 1; i < stockPricesYesterday.length; i++) {
 			let potentialProfit = stockPricesYesterday[i] - minPrice;
 
 			maxProfit = Math.max(...[maxProfit, potentialProfit]);
 
-			minPrice = Math.min(...[minPrice, stockPricesYesterday[i]]); // reset last
+			minPrice = Math.min(...[minPrice, stockPricesYesterday[i]]);
 		}
 		return maxProfit;
 	}
 
 	// example use of recursion to handle sum numbers in multi-dimensional array
 	sumNumbers(arr) {
-		if (Array.isArray(arr) == false) {
+		if (Array.isArray(arr) === false) {
 			throw new Error("This function only accepts array arguments");
 		}
-		var sum = 0;
-		for (var i = 0; i < arr.length; i++) {
-			var type = typeof(arr[i]);
+		let sum = 0;
+		for (let val of arr) {
+			let type = typeof(val);
 			if (type == "number") {
-				sum += arr[i];
+				sum += val;
 			} else if (type == "object") {
-				sum += this.sumNumbers(arr[i]);
-			} else {
-				sum += 0;
-			}
+				sum += this.sumNumbers(val);
+			} else { sum += 0; }
 		}
 		return sum;
 	}
