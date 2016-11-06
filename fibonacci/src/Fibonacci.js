@@ -1,4 +1,4 @@
-// Write a function fib() that a takes an integer nn and returns the nnth fibonacci ↴ number.
+// Write a function fib() that a takes an integer index_of_sequence and returns the nindex_of_sequence fibonacci ↴ number.
 // Let's say our fibonacci series is 0-indexed and starts with 0.
 
 // The Fibonacci series is a numerical series where each item is the sum of the two previous items. 
@@ -17,22 +17,23 @@
 
 // 0 1 1 2 3 5 8 13 21 34
 
-function fib_by_iteration(nth) {
+function fib_by_iteration(index_of_sequence) {
 	let a = 0, b = 1, fib = 1;
-	for(var i = 2; i <= nth; i++) {
-		fib = a + b;
-		a = b;
-		b = fib;
+	for(var i = 2; i <= index_of_sequence; i++) {
+		// pushing values up 
+		current_val_of_sequence = a + b;
+		a = b; // a is replace with b
+		b = current_val_of_sequence; // b is replaced with current index val of sequence
 	}
 	return fib;
 }
 
 //0, 1, 1, 2, 3,
-function fib_by_recursion(nn) {
-	if (nn <= 1) {
-		return nn;
+function fib_by_recursion(index_of_sequence) {
+	if (index_of_sequence <= 1) {
+		return index_of_sequence;
 	} else { 
-		return fib_by_recursion(nn-1) + fib_by_recursion(nn-2);
+		return fib_by_recursion(index_of_sequence-1) + fib_by_recursion(index_of_sequence-2);
 	}
 }
 
