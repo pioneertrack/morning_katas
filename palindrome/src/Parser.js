@@ -27,12 +27,12 @@ class Parser {
 	}
 
 	palindrome(string) {
+		let strippedString = string.replace(/\W/g, "").toLowerCase();
 		let reverse = "";
-		for (var i = string.length - 1; i >= 0; i--) {
-			reverse += string[i];
+		for (var i = strippedString.length - 1; i >= 0; i--) {
+			reverse += strippedString[i];
 		}
-		debugger
-		if (reverse == string) return true;
+		if (reverse == strippedString) return true;
 		return false;
 	}
 }
