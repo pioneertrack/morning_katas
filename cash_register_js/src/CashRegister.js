@@ -17,10 +17,7 @@ class CashRegister {
 		console.log("CurrentIndex: " + currentIndex)
 		// we hit the amount with no remainder so we have one way to make the amount!
 
-		if (amountLeft === 0) {
-			console.log("Zero, match!");
-			return 1;
-		}
+		if (amountLeft === 0) { return 1; }
 		// we overshot the amount so no way to make it!
 		if (amountLeft < 0) return 0;
 		// we're out of denominations
@@ -37,7 +34,7 @@ class CashRegister {
 		let numPossibilities = 0;
 		while (amountLeft >= 0) {
 			console.log("Amount Left: " + amountLeft) 
-			//+ ", Denominations: " + denominations + ", CurrentIndex: " + currentIndex + ", Number of possibilities: " + numPossibilities);
+			console.log(	"Denominations: " + denominations + ", CurrentIndex: " + currentIndex + ", Number of possibilities: " + numPossibilities);
 			numPossibilities += this.possibleCoinCombinationsOf(amountLeft, denominations, currentIndex + 1);
 			console.log("Subtracting current coin: " + currentCoin);
 			amountLeft -= currentCoin;
