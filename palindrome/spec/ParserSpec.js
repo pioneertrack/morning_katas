@@ -8,37 +8,71 @@ describe("Parser", function() {
     parser = new Parser();
   });
 
-  describe("#palindrome", function () {
+  describe("#palindrome_via_iteration", function () {
 
     it("should return true if a string is a palindrome", function() {
-      expect(parser.palindrome("noon")).toEqual(true)
+      expect(parser.palindrome_via_iteration("noon")).toEqual(true)
     });
 
     it("should return true if a string is a palindrome", function() {
-      expect(parser.palindrome("redivider")).toEqual(true)
+      expect(parser.palindrome_via_iteration("redivider")).toEqual(true)
     });
 
-    describe("string with spaces", function () {
+    describe("string with non-alphanumeric chars", function () {
     
       it("should return true if a string is a palindrome", function() {
-        expect(parser.palindrome("Amore Roma")).toEqual(true)
+        expect(parser.palindrome_via_iteration("Amore Roma")).toEqual(true)
       });
 
       it("should return true if a string is a palindrome", function() {
-        expect(parser.palindrome("A man, a plan, a canal: Panama")).toEqual(true)
+        expect(parser.palindrome_via_iteration("A man, a plan, a canal: Panama")).toEqual(true)
       });
 
       it("should return true if a string is a palindrome", function() {
-        expect(parser.palindrome("No 'x' in 'Nixon'")).toEqual(true)
+        expect(parser.palindrome_via_iteration("No 'x' in 'Nixon'")).toEqual(true)
       });
 
       it("should return false if a string is not a palindrome", function() {
-        expect(parser.palindrome("Abba Zabba, you're my only friend")).toEqual(false)
+        expect(parser.palindrome_via_iteration("Abba Zabba, you're my only friend")).toEqual(false)
       });
 
       it("should return false if a string is not a palindrome", function() {
-        expect(parser.palindrome("Jasper is my little friend.")).toEqual(false)
+        expect(parser.palindrome_via_iteration("Jasper is my little friend.")).toEqual(false)
       });
+    });
+  });
+
+  describe("#palindrome_via_recursion", function () {
+
+    it("should return true if a string is a palindrome", function() {
+      expect(parser.palindrome_via_recursion("noon")).toEqual(true)
+    });
+
+    it("should return true if a string is a palindrome", function() {
+      expect(parser.palindrome_via_recursion("redivider")).toEqual(true)
+    });
+
+    describe("string with non-alphanumeric chars", function () {
+    
+      // it("should return true if a string is a palindrome", function() {
+      //   expect(parser.palindrome_via_recursion("Amore Roma")).toEqual(true)
+      // });
+
+      // it("should return true if a string is a palindrome", function() {
+      //   expect(parser.palindrome_via_recursion("A man, a plan, a canal: Panama")).toEqual(true)
+      // });
+
+      // it("should return true if a string is a palindrome", function() {
+      //   expect(parser.palindrome_via_recursion("No 'x' in 'Nixon'")).toEqual(true)
+      // });
+
+      // it("should return false if a string is not a palindrome", function() {
+      //   expect(parser.palindrome_via_recursion("Abba Zabba, you're my only friend")).toEqual(false)
+      // });
+
+      // it("should return false if a string is not a palindrome", function() {
+      //   expect(parser.palindrome_via_recursion("Jasper is my little friend.")).toEqual(false)
+      // });
     });
 
   });
