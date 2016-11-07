@@ -24,6 +24,7 @@ class Parser {
 	
 	constructor(string) {
 		this.string = string;
+		this.stripped = false
 	}
 
 	palindrome_via_iteration(string) {
@@ -37,7 +38,11 @@ class Parser {
 	}
 
 	palindrome_via_recursion(string) {
-		// base_case
+		if (this.stripped === false) { // only strip the string once
+			string = string.replace(/\W/g, "").toLowerCase();
+			this.stripped = true;
+		}
+		// base_case - empty string or one character is always a palindrome
 		if (string.length === 1 || string.length === 0) return true;
 		// recursive case - make sure first and last characters match for each substring
 		// if the base case return true it's a palindrome
