@@ -45,7 +45,7 @@ class Parser {
 		// base_case - empty string or one character is always a palindrome
 		if (string.length === 1 || string.length === 0) return true;
 		// recursive case - make sure first and last characters match for each substring
-		// if the base case return true it's a palindrome
+		// if the base case returns	 true it's a palindrome
 		return string[0] === string.slice(-1) && this.palindrome_via_recursion(string.slice(1, -1));
 	}
 }
