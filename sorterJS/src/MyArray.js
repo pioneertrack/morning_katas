@@ -24,7 +24,7 @@ class MyArray {
 		if (int_array.length <= 1) return int_array; // base case - it's sorted if array is empty or only 1 value
 		let rand = Math.floor(Math.random() * (int_array.length - 1));
 
-		let pivot = (int_array.splice(rand, 1)).pop(); // returns element in array from array at rand index
+		let pivot = (int_array.splice(rand, 1)); // returns element in array from array at rand index
 
 		//partition
 		let left = [];
@@ -41,23 +41,25 @@ class MyArray {
 
 	trueQuickSort(int_array, left, right) {
 		let partitionIndex;
-		let rand = Math.floor(Math.random() * (right - left + 1) + left); // right is the length of array - 1
-		let pivot = int_array[rand];
-
-		console.log("PIVOT" + pivot);
-
 
 		if (left < right) { // base case, if left is not less than right we've nothing left to partition
 			partitionIndex = left;
+			let pivot = left + Math.ceil((right - left) * 0.5);
+			let pivotValue = int_array[pivot];
+
+			// put the pivot on the right
+			this.swap(int_array, pivot, right);
+
+
 			for (var i = left; i < right; i++) {
 				// swap els in array if less than pivot
-				if (int_array[i] < pivot) {
+				if (int_array[i] < pivotValue) {
 					this.swap(int_array, i, partitionIndex);
 					partitionIndex++; // increment partitionIndex only if we swap
 				}
 			}
-			console.log("ARRAY " + int_array + " partition index " + partitionIndex + " PIVOT " + pivot);
-			this.swap(int_array, rand, partitionIndex); // last make sure we put pivot is in the right position
+			console.log("ARRAY " + int_array + " partition index " + partitionIndex + " PIVOT " + pivotValue);
+			this.swap(int_array, right, partitionIndex); // last make sure we put pivot in the right position
 			//sort left and right
 			this.trueQuickSort(int_array, left, partitionIndex - 1);
 			this.trueQuickSort(int_array, partitionIndex + 1, right);
