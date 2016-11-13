@@ -47,10 +47,6 @@ class MyArray {
 			let pivot = left + Math.ceil((right - left) * 0.5);
 			let pivotValue = int_array[pivot];
 
-			// put the pivot on the right
-			this.swap(int_array, pivot, right);
-
-
 			for (var i = left; i < right; i++) {
 				// swap els in array if less than pivot
 				if (int_array[i] < pivotValue) {
@@ -59,7 +55,7 @@ class MyArray {
 				}
 			}
 			console.log("ARRAY " + int_array + " partition index " + partitionIndex + " PIVOT " + pivotValue);
-			this.swap(int_array, right, partitionIndex); // last make sure we put pivot in the right position
+			this.swap(int_array, pivot, partitionIndex); // last make sure pivot is to the right of all the lesser values
 			//sort left and right
 			this.trueQuickSort(int_array, left, partitionIndex - 1);
 			this.trueQuickSort(int_array, partitionIndex + 1, right);
