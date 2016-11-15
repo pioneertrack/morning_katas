@@ -42,4 +42,20 @@ describe Array do
       expect(input.quick_sort).to eq([-10, -1, 0, 4, 5, 6])
     end
   end
+
+  describe '#in_place_quick_sort' do
+
+    subject(:array) { Array.new }
+
+    it 'should sort the values in an array' do
+      input = [1, 4, 0, 10, 5, 6]
+      right = input.length-1
+      expect(array.in_place_quick_sort(input, 0, right)).to eq([0, 1, 4, 5, 6, 10])
+    end
+
+    # it 'should sort the values in an array' do
+    #   input = [-1, 4, 0, -10, 5, 6]
+    #   expect(input.in_place_quick_sort).to eq([-10, -1, 0, 4, 5, 6])
+    # end
+  end
 end

@@ -39,5 +39,25 @@ class Array
     return *left.quick_sort, pivot, *right.quick_sort
   end
 
- 
+  def in_place_quick_sort(arr, left, right)
+    # base case
+    if (left < right) # if this is false we've sorted the array
+      partition_index = left
+      pivot = rand(left..right)
+      pivot_value = arr[pivot]
+      # iterate over array; compare val to pivot val and swap with partitionIndex if less than pivot
+      for i in (left...right)
+        if arr[i] < pivot_value
+          arr[i], arr[partition_index] = arr[partition_index], arr[i]
+          partition_index += 1
+        end
+      end
+      # make sure pivot is just to the right (partition index) of the items we moved
+      arr[pivot], arr[partition_index] = arr[partition_index], arr[pivot]
+
+      in_place_quick_sort(arr, left, partition_index - 1)
+      in_place_quick_sort(arr, partition_index + 1, right)
+    end
+    return arr
+  end
 end

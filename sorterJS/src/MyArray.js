@@ -38,65 +38,35 @@ class MyArray {
 		}
 		return this.quickSort(left).concat(pivot, this.quickSort(right));
 	}
+	
+	swap (arr, i, j) {
+		let temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
 
-	trueQuickSort(int_array, left, right) {
+	inplaceQuickSort (arr, left, right) {
 		let partitionIndex;
 
-		if (left < right) { // base case, if left is not less than right we've nothing left to partition
+		// iterate over array and move elements less than pivot to left of pivot index
+		if (left < right) { // base case - we've sorted everything if left index is greater or = to right index
 			partitionIndex = left;
 			let pivot = left + Math.ceil((right - left) * 0.5);
-			let pivotValue = int_array[pivot];
+			let pivotValue = arr[pivot];
 
 			for (var i = left; i < right; i++) {
-				// swap els in array if less than pivot
-				if (int_array[i] < pivotValue) {
-					this.swap(int_array, i, partitionIndex);
-					partitionIndex++; // increment partitionIndex only if we swap
+				if (arr[i] < pivotValue) {
+					this.swap(arr, i, partitionIndex);
+					partitionIndex++;
 				}
 			}
-			console.log("ARRAY " + int_array + " partition index " + partitionIndex + " PIVOT " + pivotValue);
-			this.swap(int_array, pivot, partitionIndex); // last make sure pivot is to the right of all the lesser values
-			//sort left and right
-			this.trueQuickSort(int_array, left, partitionIndex - 1);
-			this.trueQuickSort(int_array, partitionIndex + 1, right);
-		}
-		return int_array;
-	}
+			this.swap(arr, pivot, partitionIndex); // swap pivot and partionindex so pivot is immediate right of lesser vals
 
-	swap (array, i, j) {
-		let temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
+			this.inplaceQuickSort(arr, left, partitionIndex - 1);
+			this.inplaceQuickSort(arr, partitionIndex + 1, right);
+		}
+		return arr;
 	}
 }
-
-	// trueQuickSort (int_array, left, right) {
-	// 	let rand = Math.random(int_array.length)
-	// 	let pivot = int_array[rand]
-	// 	let partitionIndex;
-
-	// 	// partition; move everything less than pivot to left
-	// 	// increment partitionIndex
-	// 	if (left < right) { // base case
-	// 		partitionIndex = left;
-	// 		for (var i = left; i < right; i++) {
-	// 			if (int_array[i] < pivot) {
-	// 				this.swap(int_array, i, rand)
-	// 				partitionIndex++;
-	// 			}
-	// 		}
-	// 		this.swap(int_array, rand, partitionIndex); // make sure pivot is in the rightmost position
-
-	// 		trueQuickSort(int_array, left, partitionIndex - 1);
-	// 		trueQuickSort(int_array, partitionIndex + 1, right);
-	// 	}
-	// }
-
-	// swap (int_array, i, j) {
-	// 	let temp = int_array[i];
-	// 	int_array[i] = int_array[j];
-	// 	int_array[j] = int_array[i];
-	// }
-//}
 
 
