@@ -26,7 +26,6 @@
 			var int1 = $(parent).find('.num_input1').val();
 			var int2 = $(parent).find('.num_input2').val();
 			var plus = lookupOperator('+');
-			console.log("PLUS " + plus);
 			sum = plus(int1, int2);
 			$(parent).find('.sum').html(sum);
 		});
