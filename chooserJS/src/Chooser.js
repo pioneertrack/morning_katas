@@ -6,11 +6,11 @@ class Chooser {
 
 	combinationsOfKFromN(population, subset) {
 		// base case
-		if (population == subset || population == 0) {
+		if (population == subset || subset == 0) {
 			return 1;
 		} else {
 			return(this.combinationsOfKFromN(population-1, subset-1) + 
 			this.combinationsOfKFromN(population-1, subset));
 		}		
 	}
-}
+} 
