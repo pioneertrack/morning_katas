@@ -17,24 +17,29 @@ class Merger
   end
 
   def merge_arrays(arr1=[], arr2=[])
+
+    return arr1+arr2 if arr1.length == 0 || arr2.length == 0
+
     merged_array = []
-
     output_length = arr1.length + arr2.length
-    index = 0
-    while index <= output_length
-      if arr1.length == 0
-        merged_array[index] = arr2.shift
-        return merged_array
-      elsif arr2.length == 0
-        merged_array[index] = arr1.shift
-      elsif arr1[0] < arr2[0]
-        merged_array[index] = arr1.shift
-      else
-        merged_array[index] = arr2.shift
-      end
-      puts "MERGED #{merged_array}"
 
-      index += 1
+    current_index_merged = 0
+    current_index_arr1 = 0
+    current_index_arr2 = 0
+
+    while current_index_merged < output_length
+      if current_index_arr1 == arr1.length # we've gone through all items in arr1; add the rest of arr2 to merged
+        return merged_array + arr2[current_index_arr2...arr2.length]
+      elsif current_index_arr2 == arr2.length # we've gone through all items in arr2; add the rest of arr1 to merged
+        return merged_array + arr1[current_index_arr1...arr1.length]
+      elsif arr1[current_index_arr1] < arr2[current_index_arr2]
+        merged_array[current_index_merged] = arr1[current_index_arr1]
+        current_index_arr1 += 1
+      else
+        merged_array[current_index_merged] = arr2[current_index_arr2]
+        current_index_arr2 += 1
+      end
+      current_index_merged += 1
     end
     merged_array
   end
