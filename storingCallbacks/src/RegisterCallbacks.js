@@ -11,24 +11,20 @@
 
 	registerOperator("+", function(inputVals) {
 		let sum = 0;
-		Array.prototype.forEach.call(inputVals, function(el) { 
-			sum += parseInt(el);
-		});
+		inputVals.forEach(v => sum += parseInt(v));
 		return sum;
 	});
 
 	registerOperator("*", function(inputVals) {
 		let product = 1;
-		Array.prototype.forEach.call(inputVals, function(el) { 
-			product *= parseInt(el);
-		});
+		inputVals.forEach(v => product *= parseInt(v));
 		return product;
 	});
 
 	registerOperator("/", function(inputVals) {
 		let quotient = inputVals[0];
-		Array.prototype.forEach.call(inputVals, function(el, i) {
-			if (i > 0) { quotient /= parseInt(el);}
+		inputVals.forEach((v, i) => {
+			if (i > 0) { quotient /= parseInt(v); }
 		});
 		return quotient;
 	});
@@ -38,7 +34,7 @@
       $parent = $(this).parent();
       console.log("PARENT" + parent);
       inputVals = $parent.find('input').map(function() {
-        return $(this).val();
+        return Array.from($(this).val());
       });
 
       let operator = lookupOperator($(this).html());
