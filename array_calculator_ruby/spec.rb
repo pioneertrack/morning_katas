@@ -55,6 +55,11 @@ describe Calculator do
 			expect(calculator.get_max_profit(input)).to eq(17)
 		end
 
+		it "should return the max profit from 1 purchase and 1 sale of 1 stock yesterday" do
+			arr = [1, 0, 10];
+			expect(calculator.get_max_profit(arr)).to eq(10)
+		end
+
 		# edge case when price goes all the way down
 		it 'should return the max profit from 1 purchase and 1 sale of 1 stock yesterday' do
 			input = [10, 8, 6, 3, 1]
