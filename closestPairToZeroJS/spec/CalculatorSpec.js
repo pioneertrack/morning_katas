@@ -25,4 +25,11 @@ describe("Calculator", function () {
       expect(calculator.allZeroSumPairs(arr)).toEqual([[-1, 1],[-2, 2],[-6, 6]]);
     });
   });
+
+  describe("#OofNSolution", function() {
+    it("should return an 2D array with all pairs that sum to zero", function() {
+      let arr = [1, -1, 2, 4, 6, -2, 80, 30, -6];
+      expect(calculator.OofNSolution(arr)).toEqual([[-1, 1],[-2, 2],[-6, 6]]);
+    });
+  });
 });

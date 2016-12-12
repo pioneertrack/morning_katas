@@ -31,4 +31,18 @@ class Calculator {
 		}
 		return zeroSumPairs;
 	}
+
+	OofNSolution(arr) {
+		var found = {};
+		var results = [];
+		for(var i of arr) {
+			console.log(i);
+			if (found[-i] === true) {
+				// pair found
+				results.push([i, -i]);
+			}
+			found[i] = true;
+		}
+		return results;
+	}
 }
