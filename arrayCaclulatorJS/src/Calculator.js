@@ -43,12 +43,12 @@ class Calculator {
 	
 	uniqueValues(arr) {
 		let uniques = [];
-		arr.forEach(i => {
+		arr.forEach(outerVal => {
 			let exists = false;
-			uniques.forEach(j => {
-				if (i == j) exists = true;
+			uniques.forEach(innerVal => {
+				if (innerVal == outerVal) exists = true;
 			});
-			if (exists === false) uniques.push(i);
+			if (exists === false) uniques.push(outerVal);
 		});
 		return uniques;
 	}

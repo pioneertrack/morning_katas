@@ -11,7 +11,6 @@ class Array
         self[i] = 0
         return self.unshift(1) if i == 0
       end
-
       i -= 1
     end
     self
