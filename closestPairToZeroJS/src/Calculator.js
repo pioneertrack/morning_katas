@@ -45,4 +45,19 @@ class Calculator {
 		}
 		return results;
 	}
+
+	pairSumsTo100 (arr) {
+		let found = {};
+		let results = [];
+		arr.forEach(val => {
+			if (found[Math.abs(val-100)]) {
+				results.push([val, Math.abs(val-100)]);
+			} else if (found[Math.abs(val+100)]) {
+				results.push([val, Math.abs(val+100)]);
+			}
+			found[val] = true;
+		});
+		return results;
+	}
+
 }
