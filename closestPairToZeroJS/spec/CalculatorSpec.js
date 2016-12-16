@@ -35,8 +35,8 @@ describe("Calculator", function () {
 
   describe("#pairSumsTo100", function() {
     it("should return a 2D array with all the pairs that sum to 100", function() {
-      let arr = [20, -20, 50, 80, 25, 20, -125, -50];
-      expect(calculator.pairSumsTo100(arr)).toEqual([[80, 20], [20, 80], [-125, 25], [-50, 50]]);
+      let arr = [20, -20, 50, 80, 25, 20, -125, -50, 0, 100];
+      expect(calculator.pairSumsTo100(arr)).toEqual([[80, 20], [20, 80], [-125, 25], [-50, 50], [100, 0]]);
     });
   });
 });

@@ -37,6 +37,7 @@ class Calculator {
 		var results = [];
 		for(var i of arr) {
 			console.log(i);
+			// querying the reciprocal as the opposite of val
 			if (found[-i] === true) {
 				// pair found
 				results.push([i, -i]);
@@ -50,7 +51,8 @@ class Calculator {
 		let found = {};
 		let results = [];
 		arr.forEach(val => {
-			if (found[Math.abs(Math.abs(val)-100)]) {
+			// querying the reciprocal as the absolute val of the absolute val minus 100
+			if (found[Math.abs(Math.abs(val)-100)] === true) {
 				results.push([val, Math.abs(Math.abs(val)-100)]);
 			}
 			found[val] = true;
