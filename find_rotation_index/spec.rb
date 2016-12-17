@@ -6,7 +6,6 @@ describe '#find_rotation_index' do
     'retrograde',
     'supplant',
     'undulate',
-    'xenoepist',
     'apples',
     'asymptote', # <-- rotates here!
     'babka',
@@ -17,6 +16,10 @@ describe '#find_rotation_index' do
   ]
 
   it 'should find the rotation point in an alphabetized, rotated array' do
-    expect(words.find_rotation_index(0, words.length-1).should eq(5))
+    expect(words.find_rotation_index_recursive_binary_search.should eq(5))
+  end
+
+  it 'should find the rotation point in an alphabetized, rotated array' do
+    expect(words.find_rotation_index_iterative_binary_search.should eq(5))
   end
 end
