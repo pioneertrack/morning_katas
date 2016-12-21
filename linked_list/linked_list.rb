@@ -29,7 +29,7 @@ class LinkedList
   
   # a, b, c, a
 
-  def contains_cycle
+  def contains_cycle_via_array_storage # O(n) time O(n) space
     current = head
     prevs = []
     cycle = false
@@ -42,6 +42,22 @@ class LinkedList
       current = current.next
     end
     cycle
+  end
+
+  def contains_cycle_via_runners # O(n) time O(1) space
+    slow_runner = head
+    fast_runner = head
+    cycle = false
+    while fast_runner != nil && fast_runner.next != nil
+      slow_runner = slow_runner.next
+      fast_runner = fast_runner.next.next
+
+      if fast_runner == slow_runner
+        cycle = true
+        break
+      end
+    end
+    return cycle
   end
 end
 
