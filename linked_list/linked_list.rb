@@ -1,3 +1,4 @@
+require 'byebug'
 class LinkedList
 
   attr_accessor :head
@@ -6,7 +7,7 @@ class LinkedList
     @head = node
   end
 
-  def get(val)
+  def find(val)
     current = head
     return current if val == current.value
     while current.value != val
@@ -16,15 +17,26 @@ class LinkedList
   end
 
   #jim, ed, nancy
-  def update(val)
-    # ed points to nancy
-    # jill insert points to nancy
-    # update ed to point to jill
-    get(val)
-    current.next = insert
+  def add(val)
+    
   end
 
   def delete(val)
+    # edge case deleting head
+    return head.delete if val == head.value
+
+    current = head.next
+    previous = head
+
+    while current.next != nil
+      if current.value == val
+        previous.next = current.next
+        current = nil
+        break;
+      end
+      previous = current
+      current = current.next
+    end
   end
   
   # a, b, c, a
@@ -63,7 +75,7 @@ end
 
 class LinkedListNode
 
-  attr_accessor :value, :next
+  attr_accessor :value, :next, :previous
 
   def initialize(value)
     @value = value
