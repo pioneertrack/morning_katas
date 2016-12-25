@@ -20,10 +20,12 @@ class Array
     stop = length-1 if stop.nil?
 
     # base case array not rotated
+    #a, b, c, d, e
+    #e, a, b, c, e
     return start if self[start][0] < self[stop][0]
 
     # base case no more spots to check
-    return start if start >= stop
+    return start if start == stop
 
     mid = start+(stop-start)/2
     previous = self[mid-1][0]
