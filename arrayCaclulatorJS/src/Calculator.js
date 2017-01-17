@@ -15,7 +15,7 @@ class Calculator {
 		let minPrice = stockPricesYesterday[0];
 		let maxProfit = stockPricesYesterday[1] - minPrice;
 
-		for (var i=1; i < stockPricesYesterday.length; i++) {
+		for (let i=1; i < stockPricesYesterday.length; i++) {
 			let potentialProfit = stockPricesYesterday[i] - minPrice;
 			maxProfit = Math.max(potentialProfit, maxProfit);
 			minPrice = Math.min(stockPricesYesterday[i], minPrice);
@@ -31,25 +31,25 @@ class Calculator {
 			throw new Error("This function only accepts array arguments");
 		}
 		let sum = 0;
-		arr.forEach(num => {
+		for (let num of arr) {
 			if (typeof num == "number") {
 				sum += num;
 			} else if (typeof num == "object") {
 				sum += this.sumNumbers(num);
 			} else { sum; }
-		});
+		}
 		return sum;
 	}
 	
 	uniqueValues(arr) {
 		let uniques = [];
-		arr.forEach(outerVal => {
+		for (let outerVal of arr) {
 			let exists = false;
-			uniques.forEach(innerVal => {
+			for (let innerVal of uniques) {
 				if (innerVal == outerVal) exists = true;
-			});
+			}
 			if (exists === false) uniques.push(outerVal);
-		});
+		}
 		return uniques;
 	}
 }

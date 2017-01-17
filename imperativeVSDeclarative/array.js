@@ -7,7 +7,7 @@
 
 // declarative
 // we are abstracting over some imperative solution with functional programming
-// code is context indepenedent and reusable in other programs
+// code is context independent and reusable in other programs
 
 // tells the program exactly how to get solution
 function imperativeDouble(arr) {

@@ -14,7 +14,7 @@ class Calculator
 			elsif val.is_a? Array
 				sum += sum_numbers(val)
 			else
-				sum += 0
+				sum
 			end
 		end
 		sum
